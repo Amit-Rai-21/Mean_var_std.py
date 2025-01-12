@@ -1,0 +1,41 @@
+Documentation for Matrix Calculation Code
+
+Here is a piece of Python code where you can enter a 3 × 3 matrix, and it calculates some statistical properties of the matrix. Here is a breakdown of how the code works, and a brief explanation of what the code does.
+
+Overview:
+The code performs the following steps:
+
+Input the Matrix: The user is prompted to input 9 integers (for a 3x3 matrix).
+Matrix Validation: It ensures that the input contains exactly 9 numbers.
+Matrix Operations: Once validated, the matrix is reshaped into a 3x3 array, and several calculations are performed on it, including:
+1.Mean
+2.Variance
+3.Standard Deviation
+4.Maximum value
+5.Minimum value
+7.Sum
+
+Detailed Explanation:
+Input Data:
+The user is prompted to enter 9 integers separated by spaces. These integers are then converted into a list of integers using map(int, input().split()).
+This list is validated to ensure that it contains exactly 9 elements. If not, an error message is shown.
+
+Matrix Reshaping:
+The input data is reshaped into a 3x3 matrix using np.array(Data).reshape(rows, cols). This is done using NumPy, a powerful library for numerical operations in Python.
+
+
+Matrix Calculations:
+
+Mean: The mean is calculated across each column (axis=0), each row (axis=1), and the entire matrix.
+Variance: Variance is calculated similarly to the mean but measures the spread of data points around the mean.
+
+Standard Deviation: This is the square root of the variance and measures the dispersion of data.
+
+Max: The maximum value is calculated across each row, each column, and the entire matrix.
+
+Min: The minimum value is calculated in the same way as the maximum.
+
+Sum: The sum of the elements is calculated across each row, each column, and the entire matrix.
+
+Output:
+The results for each of the above operations are stored in a dictionary (Calculatons) and printed to the console.

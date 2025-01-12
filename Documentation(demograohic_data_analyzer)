@@ -1,0 +1,62 @@
+Documentation for Data Analysis with Pandas
+This Python program performs several types of demographic data analysis using the Pandas library. The analysis is based on a dataset (adult.data.csv) and includes calculations related to race distribution, average age, education, working hours, country-wise salary distribution, and occupation analysis.
+
+
+Overview:
+The program performs the following steps:
+
+1.Race Distribution: Counts the occurrences of each race in the dataset.
+Average Age of Men: Calculates the average age of male individuals.
+
+2.Bachelor’s Degree Percentage: Computes the percentage of individuals with a Bachelor's degree.
+
+3.Advanced Education Analysis: Analyzes the percentage of people with advanced education (Bachelors, Masters, Doctorate) earning more than 50K and compares it with those without advanced education.
+
+4.Working Hours Analysis: Analyzes the minimum number of hours worked per week and the percentage of individuals working those hours who earn more than 50K.
+
+5.Country-wise Salary Analysis: Provides salary distribution based on native country and identifies the country with the highest percentage of people earning more than 50K.
+
+6.Occupation Analysis in India: Identifies the most popular occupation for individuals earning more than 50K in India.
+
+
+Detailed Explanation:
+Importing Necessary Libraries and Loading the Dataset:
+
+The program starts by importing the Pandas library (import pandas as pd).
+It then loads the dataset adult.data.csv into a Pandas DataFrame using pd.read_csv('adult.data.csv').
+
+Analyzing the Race Distribution:
+The program counts the number of occurrences of each race in the race column using df['race'].value_counts().
+The result is printed to display the distribution of races in the dataset.
+
+Calculating the Average Age of Men:
+The dataset is filtered for male individuals (df[df['sex'] == 'Male']), and the mean age is calculated using .mean() on the age column.
+The result is printed with two decimal places.
+Calculating the Percentage of People with a Bachelor's Degree:
+
+The total number of entries is counted using df['education'].count().
+The number of people with a Bachelor's degree is counted using df[df['education'] == 'Bachelors']['education'].count().
+The percentage of people with a Bachelor's degree is calculated by dividing the count of Bachelor's degree holders by the total count and multiplying by 100.
+The result is printed with two decimal places.
+
+Advanced Education Analysis:
+The program filters the dataset for people with advanced education (Bachelors, Masters, or Doctorate) using df[df['education'].isin(['Bachelors', 'Masters', 'Doctorate'])].
+It counts the total number of people with advanced education and calculates how many of them earn more than 50K (df[df['salary'] == '>50K']).
+The percentage of people with advanced education earning more than 50K is calculated and printed.
+Similarly, the percentage of people without advanced education earning more than 50K is calculated and printed.
+
+Working Hours Analysis:
+The minimum number of hours worked per week is found using df['hours-per-week'].min().
+The program calculates the percentage of people who work the minimum number of hours per week and earn more than 50K. This is done by filtering the dataset for people who work the minimum number of hours and checking how many of them earn more than 50K.
+The result is printed with two decimal places.
+Country-wise Salary Analysis:
+
+The number of unique countries is found using df['native-country'].nunique().
+The total count of individuals from each country and the count of those earning more than 50K are calculated using groupby('native-country').
+The percentage of people earning more than 50K in each country is calculated and stored in a new DataFrame.
+The program identifies the country with the highest percentage of people earning more than 50K and prints the result.
+
+Occupation Analysis in India:
+The program filters the dataset for individuals from India who earn more than 50K.
+It identifies the most popular occupation among this group using the .mode() function, which returns the most frequent value in the occupation column.
+The result is printed.
